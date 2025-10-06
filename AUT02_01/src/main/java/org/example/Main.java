@@ -17,7 +17,7 @@ public class Main {
             switch (opcion) {
                 case 1 -> {
                     System.out.print("Introduce nombre: ");
-                    String nombre = sc.nextLine();
+                    String nombre = sc.next();
                     System.out.print("Introduce edad: ");
                     int edad = sc.nextInt();
                     System.out.print("Introduce nota: ");
@@ -37,6 +37,18 @@ public class Main {
                     break;
                 }
                 case 3 -> {
+                    System.out.print("Introduce el nombre del estudiante a buscar: ");
+                    String nombre = sc.next();
+                    boolean encontrado = false;
+                    for(int i = 0; i < listaEstudiantes.size(); i++){
+                        if (nombre.equals(listaEstudiantes.get(i).getNombre())){
+                            System.out.print("Aquí están los datos del estudiante introducido: ");
+                            System.out.println(listaEstudiantes.get(i).toString());
+                            encontrado = true;
+                            break;
+                        }else encontrado = false;
+                        System.out.println("No se ha encontrado ningún estudiante con ese nombre.");
+                    }
                     break;
                 }
                 case 4 -> {
@@ -46,11 +58,12 @@ public class Main {
                     break;
                 }
                 case 6 -> {
+                    salir = true;
+                    System.out.println("Saliendo del programa...");
                     break;
                 }
                 default -> System.out.println("Opción no válida. Inténtalo de nuevo");
             }
         }while(!salir);
-        System.out.println("Saliendo del programa...");
     }
 }
