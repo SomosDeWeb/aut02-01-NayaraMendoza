@@ -17,7 +17,10 @@ public class Main {
             switch (opcion) {
                 case 1 -> {
                     System.out.print("Introduce nombre: ");
-                    String nombre = sc.next();
+                    String nombre = "";
+                    do{
+                        nombre = sc.next();
+                    }while (nombre.isEmpty());
                     System.out.print("Introduce edad: ");
                     int edad = sc.nextInt();
                     System.out.print("Introduce nota: ");
@@ -38,15 +41,18 @@ public class Main {
                 }
                 case 3 -> {
                     System.out.print("Introduce el nombre del estudiante a buscar: ");
-                    String nombre = sc.next();
+                    String nombre = "";
+                    do{
+                        nombre = sc.next();
+                    }while (nombre.isEmpty());
                     boolean encontrado = false;
-                    for(int i = 0; i < listaEstudiantes.size(); i++){
-                        if (nombre.equals(listaEstudiantes.get(i).getNombre())){
-                            System.out.print("Aquí están los datos del estudiante introducido: ");
-                            System.out.println(listaEstudiantes.get(i).toString());
+                    for (Estudiante listaEstudiante : listaEstudiantes) {
+                        if (nombre.equals(listaEstudiante.getNombre())) {
                             encontrado = true;
+                            System.out.print("Aquí están los datos del estudiante introducido: ");
+                            System.out.println(listaEstudiante.toString());
                             break;
-                        }else {
+                        } else {
                             encontrado = false;
                         }
                     }
@@ -60,14 +66,24 @@ public class Main {
                 }
                 case 4 -> {
                     double media = 0;
-                    for(int i = 0; i < listaEstudiantes.size(); i++){
-                        media += listaEstudiantes.get(i).getNota();
+                    for (Estudiante listaEstudiante : listaEstudiantes) {
+                        media += listaEstudiante.getNota();
                     }
                     media /= listaEstudiantes.size();
                     System.out.println("\nAquí está la nota media de todos los estudiantes: " + media);
                     break;
                 }
                 case 5 -> {
+                    double notaMayor = 0;
+                    int estudiante = 0;
+                    for(int i = 0; i < listaEstudiantes.size(); i++){
+                        if (listaEstudiantes.get(i).getNota() > notaMayor){
+                            notaMayor = listaEstudiantes.get(i).getNota();
+                            estudiante = i;
+                        }
+                    }
+                    System.out.println("\nEste es el estudiante con la mayor nota:\n" + listaEstudiantes.get(estudiante).toString());
+                    System.out.println();
                     break;
                 }
                 case 6 -> {
