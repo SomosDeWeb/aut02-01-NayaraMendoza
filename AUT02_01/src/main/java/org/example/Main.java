@@ -23,10 +23,11 @@ public class Main {
                     }while (nombre.isEmpty());
                     System.out.print("Introduce edad: ");
                     int edad = sc.nextInt();
-                    System.out.print("Introduce nota: ");
-                    int nota = sc.nextInt();
+                    System.out.print("Introduce nota media: ");
+                    double nota = sc.nextDouble();
                     System.out.print("¿Está matriculado? (true/false): ");
                     boolean matriculado = sc.nextBoolean();
+                    System.out.println();
                     listaEstudiantes.add(new Estudiante(nombre, edad, nota, matriculado));
                     System.out.println("Estudiante añadido correctamente.");
                     break;
