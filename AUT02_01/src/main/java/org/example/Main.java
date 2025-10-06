@@ -13,7 +13,7 @@ public class Main {
             System.out.print("=== Gestor de estudiantes ===\n1. Añadir estudiante\n2. Listar estudiantes\n3. Buscar por nombre" +
                     "\n4. Calcular nota media general\n5. Mostrar mejor estudiante\n6. Salir\nSeleccione opcion: ");
             opcion = sc.nextInt();
-
+            System.out.println();
             switch (opcion) {
                 case 1 -> {
                     System.out.print("Introduce nombre: ");
@@ -29,6 +29,11 @@ public class Main {
                     break;
                 }
                 case 2 -> {
+                    System.out.println("Lista de estudiantes: ");
+                    for(int i = 0; i < listaEstudiantes.size(); i++){
+                        System.out.println(listaEstudiantes.get(i).toString());
+                    }
+                    System.out.println();
                     break;
                 }
                 case 3 -> {
