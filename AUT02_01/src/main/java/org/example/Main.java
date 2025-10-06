@@ -46,12 +46,25 @@ public class Main {
                             System.out.println(listaEstudiantes.get(i).toString());
                             encontrado = true;
                             break;
-                        }else encontrado = false;
+                        }else {
+                            encontrado = false;
+                        }
+                    }
+                    if (listaEstudiantes.isEmpty()){
+                        encontrado = false;
+                    }
+                    if (!encontrado){
                         System.out.println("No se ha encontrado ningún estudiante con ese nombre.");
                     }
                     break;
                 }
                 case 4 -> {
+                    double media = 0;
+                    for(int i = 0; i < listaEstudiantes.size(); i++){
+                        media += listaEstudiantes.get(i).getNota();
+                    }
+                    media /= listaEstudiantes.size();
+                    System.out.println("\nAquí está la nota media de todos los estudiantes: " + media);
                     break;
                 }
                 case 5 -> {
