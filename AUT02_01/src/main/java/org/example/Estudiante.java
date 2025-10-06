@@ -5,13 +5,15 @@ public class Estudiante {
     private String nombre;
     private int edad;
     private double nota;
+    boolean matriculado;
 
     public Estudiante() {}
 
-    public Estudiante(String nombre, int edad, double nota) {
+    public Estudiante(String nombre, int edad, double nota, boolean matriculado) {
         this.nombre = nombre;
         this.edad = edad;
         this.nota = nota;
+        this.matriculado = matriculado;
     }
 
     public String getNombre() {
@@ -36,5 +38,13 @@ public class Estudiante {
 
     public void setNota(double nota) {
         this.nota = nota;
+    }
+
+    public boolean isMatriculado() {
+        return matriculado;
+    }
+
+    public void setMatriculado(boolean matriculado) {
+        this.matriculado = matriculado;
     }
 }
